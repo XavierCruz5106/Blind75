@@ -94,4 +94,21 @@ The space complexity is O(n) because in the worst case the HashMap will be full 
 
 ### Code
 
-https://github.com/XavierCruz5106/Blind75/blob/4cd85d6222b577ff5b2397c494ca6d39c5c7a070/TwoSum/app/src/main/java/twosum/App.java#L8C5-L22C6
+```java
+
+int[] sum = new int[2];
+Map<Integer, Integer> map = new HashMap<>()
+
+for (int i = 0; i < nums.length; i++){
+  int diff = target - nums[i];
+
+  if (map.containsKey(diff)){
+    sum[0] = map.get(diff);
+    sum[1] = i;
+  }
+
+  map.put(nums[i], i);
+}
+
+return sum;
+```
