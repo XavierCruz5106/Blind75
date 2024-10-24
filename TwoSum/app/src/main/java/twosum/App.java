@@ -6,51 +6,45 @@ import java.util.Map;
 
 public class App {
     public static int[] twoSumMap(int[] nums, int target) {
-        int[] sum = new int[2];
+
         Map<Integer, Integer> map = new HashMap<>();
 
         for (int i = 0; i < nums.length; i++){
             int diff = target - nums[i];
 
             if (map.containsKey(diff)){
-                sum[0] = map.get(diff);
-                sum[1] = i;
+                return new int[]{map.get(nums[i]), i};
             }
 
             map.put(nums[i], i);
         }
-
-        return sum;
+        return new int[]{};
     }
 
 
     public static int[] twoSumNestedLoop(int[] nums, int target) {
-        int[] sum = new int[2];
+
         for (int i = 0; i < nums.length; i++){
             for (int j = i+1; j < nums.length; j++){
                 if (nums[i] + nums[j] == target){
-                    sum[0] = i;
-                    sum[1] = j;
+                    return new int[]{i, j};
                 }
             }
         }
-        return sum;
+        return new int[]{};
     }
 
 
     public static int[] twoSumPointer(int[] nums, int target) {
-        int[] sum = new int[2];
-
         for(int lp = 0; lp < nums.length; lp++){
             for (int rp = nums.length - 1; rp > lp; rp--)
             {
                 if (nums[rp] + nums[lp] == target){
-                    sum[0] = lp;
-                    sum[1] = rp;
+                    return new int[]{lp, rp};
                 }
             }
         }
-        return sum;
+        return new int[]{};
     }
 
 
