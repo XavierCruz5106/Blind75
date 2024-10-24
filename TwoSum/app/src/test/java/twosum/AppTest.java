@@ -24,4 +24,5 @@ class AppTest {
     @Test void nestedSolutionReturnsCorrectAnswer() {
         assertArrayEquals(expected, app.twoSumNestedLoop(nums, target));
     }
+
 }
