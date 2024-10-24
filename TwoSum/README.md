@@ -76,7 +76,7 @@ return sum;
 ## HashMap Method
 
 ### Intuition
-After implementing the last 2 solutions I wondered if i can leverage a data structure to reduce my time complexity. I figured since a lookup in a hashmap is constant time i should be able to store any values i want to look up and compare which would bring my time complexity down to O(n)
+After implementing the last 2 solutions I wondered if i can leverage a data structure to reduce my time complexity. I figured since a lookup in a hashmap for worst case scenario is O(n) i should be able to store any values i want to look up and compare which would bring my time complexity down to O(n)
 
 ### Approach
 
