@@ -7,11 +7,21 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
-    @Test void mapSolutionReturnsCorrectAnswer() {
-        App app = new App();
-        int[] nums = new int[]{2,7,11,15};
-        int target = 9;
+    App app = new App();
+    int[] nums = new int[]{2,7,11,15};
+    int target = 9;
+    int[] expected = new int[]{0,1};
 
-        assertArrayEquals(new int[]{0,1}, app.twoSumMap(nums, target));
+    @Test void mapSolutionReturnsCorrectAnswer() {
+
+        assertArrayEquals(expected, app.twoSumMap(nums, target));
+    }
+
+    @Test void bidrectionalSolutionReturnsCorrectAnswer() {
+        assertArrayEquals(expected, app.twoSumPointer(nums, target));
+    }
+
+    @Test void nestedSolutionReturnsCorrectAnswer() {
+        assertArrayEquals(expected, app.twoSumNestedLoop(nums, target));
     }
 }
