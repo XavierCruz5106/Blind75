@@ -13,7 +13,7 @@ public class App {
             int diff = target - nums[i];
 
             if (map.containsKey(diff)){
-                return new int[]{map.get(nums[i]), i};
+                return new int[]{map.get(diff), i};
             }
 
             map.put(nums[i], i);
