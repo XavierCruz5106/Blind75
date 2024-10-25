@@ -22,5 +22,4 @@ class AppTest {
     @Test void thirdSolutionReturnsProfit() {
         assertEquals(expected, buyAndSellStock.maxProfit3rd(prices));
     }
-
 }
