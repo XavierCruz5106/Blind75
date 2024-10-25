@@ -36,5 +36,8 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Build BuyStocks
-        working-directory: /BuyAndSellStock
+        working-directory: ./BuyAndSellStock
         run: ./gradlew check
+
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
