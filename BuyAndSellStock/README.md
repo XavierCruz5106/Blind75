@@ -26,4 +26,101 @@ Mentioned Above.
   The space complexity is $$O(1)$$ because we are only ever initalizing 3 variables no matter what the input is
 
 ### Code
-[https://github.com/XavierCruz5106/Blind75/blob/f7f736fd3697e2cb370ab26531afd249b427c26e/BuyAndSellStock/app/src/main/java/buyandsellstock/App.java#L8C9-L24C23](https://github.com/XavierCruz5106/Blind75/blob/f7f736fd3697e2cb370ab26531afd249b427c26e/BuyAndSellStock/app/src/main/java/buyandsellstock/App.java#L8C1-L24C23)
+
+```java
+int profit = 0;
+int min = Integer.MAX_VALUE;
+
+for (int i = 0; i < prices.length; i++){
+    if (prices[i] < min) {
+        min = prices[i];
+    }
+
+    int profitPotential = prices[i] - min;
+
+    if (profitPotential > profit) {
+        profit = profitPotential;
+    }
+}
+
+
+return profit;
+```
+
+## SecondSolution
+
+### Intuition
+
+After i got done the second solution i figured the Math.max might be an interesting thing to use in this solution. So i got to thinkning about how i would incorporate Math.max. i came to the conclusion that if i set the inital buyPrice to the first element and then check to see if that buyPrice is greater than any other prices. (Essentially checking if there is a lower price to buy at). I could then use Math.max to get the max of the profit or the current element - buyPrice. This WORKS!!
+
+### Approach
+
+I implemented the above the logic by modifying the first solution a bit
+
+### Complexity
+
+- Time Complexity
+  $$O(n)$$
+  The time complexity is $$O(n)$$ because we are iterating over the loop once
+
+- Space Complexity
+  $$O(1)$$
+  The space complexity is $$O(1)$$ because we are not allocating more space given more input
+
+### Code
+
+```java
+int profit = 0;
+int buyPrice = prices[0];
+
+for (int i = 1; i < prices.length; i++){
+    if (buyPrice > prices[i]){
+        buyPrice = prices[i];
+    }
+
+    profit = Math.max(profit, prices[i] - buyPrice);
+}
+
+
+return profit;
+```
+
+## ThirdSolution
+
+### Intuition
+
+After implmenting my SecondSolution i wanted to keep that solution without using Math.Max this time
+
+### Approach
+
+In order to 'remove' Math.max i just checked if the element at i - the buyPrice is greater than the profit if so i update the profit.
+
+### Complexity
+
+- Time Complexity
+  $$O(n)$$
+  The time complexity is $$O(n)$$ because we are iterating over the array once
+
+- Space Complexity
+  $$O(n)$$
+  The space complexity is $$O(1)$$ because we are not allocating new space based on input
+
+### Code
+
+```java
+int profit = 0;
+int buyPrice = prices[0];
+
+for (int i = 1; i < prices.length; i++) {
+    if (prices[i] < buyPrice) {
+        buyPrice = prices[i];
+    }
+    else if (prices[i] - buyPrice > profit) {
+        profit = prices[i] - buyPrice;
+    }
+}
+
+
+return profit;
+
+```
