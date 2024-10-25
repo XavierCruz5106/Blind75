@@ -47,7 +47,7 @@ for (int i = 0; i < prices.length; i++){
 return profit;
 ```
 
-## SecondSolution
+## Second Solution
 
 ### Intuition
 
@@ -85,7 +85,7 @@ for (int i = 1; i < prices.length; i++){
 return profit;
 ```
 
-## ThirdSolution
+## Third Solution
 
 ### Intuition
 
