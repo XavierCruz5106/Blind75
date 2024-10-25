@@ -7,8 +7,19 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
-    @Test void appHasAGreeting() {
-        App classUnderTest = new App();
-        assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
+    App buyAndSellStock = new App();
+    int[] prices = new int[] {7,1,5,3,6,4};
+    int expected = 5;
+
+    @Test void firstSolutionReturnsProfit() {
+        assertEquals(expected, buyAndSellStock.maxProfit1st(prices));
+    }
+
+    @Test void secondSolutionReturnsProfit() {
+        assertEquals(expected, buyAndSellStock.maxProfit2nd(prices));
+    }
+
+    @Test void thirdSolutionReturnsProfit() {
+        assertEquals(expected, buyAndSellStock.maxProfit3rd(prices));
     }
 }

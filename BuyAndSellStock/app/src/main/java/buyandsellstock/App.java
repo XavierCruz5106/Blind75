@@ -4,11 +4,59 @@
 package buyandsellstock;
 
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
+    public int maxProfit1st(int[] prices) {
+        int profit = 0;
+        int min = Integer.MAX_VALUE;
+
+        for (int i = 0; i < prices.length; i++){
+            if (prices[i] < min) {
+                min = prices[i];
+            }
+
+            int profitPotential = prices[i] - min;
+
+            if (profitPotential > profit) {
+                profit = profitPotential;
+            }
+        }
+
+
+        return profit;
     }
 
-    public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+
+    public int maxProfit2nd(int[] prices) {
+        int profit = 0;
+        int buyPrice = prices[0];
+
+        for (int i = 1; i < prices.length; i++){
+            if (buyPrice > prices[i]){
+                buyPrice = prices[i];
+            }
+
+            profit = Math.max(profit, prices[i] - buyPrice);
+        }
+
+
+        return profit;
     }
+
+    public int maxProfit3rd(int[] prices) {
+        int profit = 0;
+        int buyPrice = prices[0];
+
+        for (int i = 1; i < prices.length; i++) {
+            if (prices[i] < buyPrice) {
+                buyPrice = prices[i];
+            }
+            else if (prices[i] - buyPrice > profit) {
+                profit = prices[i] - buyPrice;
+            }
+        }
+
+
+        return profit;
+    }
+
+
 }
