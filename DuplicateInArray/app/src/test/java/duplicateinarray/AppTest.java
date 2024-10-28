@@ -7,8 +7,32 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
-    @Test void appHasAGreeting() {
-        App classUnderTest = new App();
-        assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
+    int[] nums = new int[]{1,2,3,1};
+    int[] nums2 = new int[]{1,2,3,4};
+    App classUnderTest = new App();
+
+    @Test void testsMapDuplicateReturnsTrue() {
+        assertEquals(true, classUnderTest.mapDuplicate(nums));
     }
+
+    @Test void testsSetDuplicateReturnsTrue() {
+        assertEquals(true, classUnderTest.setDuplicate(nums));
+    }
+
+    @Test void testsArrayDuplicateReturnsTrue() {
+        assertEquals(true, classUnderTest.setDuplicate(nums));
+    }
+
+    @Test void testsMapDuplicateReturnsFalse() {
+        assertEquals(false, classUnderTest.mapDuplicate(nums2));
+    }
+
+    @Test void testsSetDuplicateReturnsFalse() {
+        assertEquals(false, classUnderTest.setDuplicate(nums2));
+    }
+
+    @Test void testsArrayDuplicateReturnsFalse() {
+        assertEquals(false, classUnderTest.setDuplicate(nums2));
+    }
+
 }
