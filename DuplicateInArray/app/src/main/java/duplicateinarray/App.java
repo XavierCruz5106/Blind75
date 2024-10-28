@@ -3,12 +3,50 @@
  */
 package duplicateinarray;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
+    public boolean mapDuplicate(int[] nums) {
+        Map<Integer, Integer> mapOfOccurances = new HashMap<>();
+
+        for (int i = 0; i < nums.length; i++){
+            if (mapOfOccurances.containsKey(nums[i])){
+                return true;
+            }
+
+            mapOfOccurances.put(nums[i], i);
+        }
+
+        return false;
     }
 
-    public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+    public boolean setDuplicate(int[] nums) {
+        Set<Integer> setOfOccurances = new HashSet<>();
+
+        for (int i = 0; i < nums.length; i++){
+            if (setOfOccurances.contains(nums[i])){
+                return true;
+            }
+
+            setOfOccurances.add(nums[i]);
+        }
+
+        return false;
+    }
+
+    public boolean arrayDuplicate(int[] nums){
+        Arrays.sort(nums);
+
+        for(int i=nums.length-1;i>=1;i--){
+            if(nums[i]==nums[i-1]){
+                return true;
+            }
+        }
+
+        return false;
     }
 }
