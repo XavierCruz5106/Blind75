@@ -57,7 +57,6 @@ public class App {
             answer[i] *= product;
             product *= nums[i];
         }
-
         return answer;
     }
 
