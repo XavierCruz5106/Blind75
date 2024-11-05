@@ -6,9 +6,34 @@ package houserobber;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.BeforeEach;
+
 class AppTest {
-    @Test void appHasAGreeting() {
-        App classUnderTest = new App();
-        assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
+    int[] nums;
+    App classUnderTest;
+    @BeforeEach
+    public void setUp(){
+        nums = new int[]{2, 7, 9, 3, 1};
+        classUnderTest = new App();
+
     }
+
+    @Test
+    void testDpSolutionReturnsCorrectAnswer() {
+        int actual = classUnderTest.dpSolution(nums);
+
+        assertEquals(12, actual);
+
+    }
+
+    @Test
+    void testOptimizedDpSolutionReturnsCorrectAnswer(){
+        int actual = classUnderTest.optimizedDpSolution(nums);
+
+        assertEquals(12, actual);
+    }
+
+
+
+
 }
