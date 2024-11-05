@@ -4,11 +4,22 @@
 package houserobber;
 
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
+    public int dpSolution(int[] nums) {
+        int length = nums.length;
 
-    public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        if (length == 1) {
+            return nums[0];
+        }
+
+        int[] dynamicArr = new int[length];
+
+        dynamicArr[0] = nums[0];
+        dynamicArr[1] = Math.max(nums[0], nums[1]);
+
+        for (int i = 2; i < length; i++) {
+            dynamicArr[i] = Math.max(dynamicArr[i - 1], nums[i] + dynamicArr[i - 2]);
+        }
+
+        return dynamicArr[length - 1];
     }
 }
