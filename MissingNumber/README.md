@@ -102,3 +102,40 @@ for (int num : nums) {
 
 return numsUpToN.iterator().next();
 ```
+
+## Math Solution
+
+### Intuition
+Leetcode kind of gave me a hint of what to look for. They suggested that i do it with $$O(n)$$ time complexity and in constant space. using this i was able to figure out a way to use math in order to find the missing number.
+
+### Approach
+i first wanted figure out how to get a sum of all the numbers up to n. after some googling i found this equation that does exactly that. `(n * (n + 1)) / 2` where `n = nums.length`.
+
+Using this equation i can compare what we expect the sum to be vs what the sum actually is.
+
+After comparing i was stuck for a bit i was wondering how do we get the missing number from this? I realized that if i just subtract what we expect vs what we got we get the missing number. for example if n = 4 we would add 0 + 1 + 2 + 3 + 4 which is 10. Then if nums has the numbers 0 + 1 + 3 + 4 that has a sum of 8. 10 - 8 is 2. thats the number we are missing!!
+
+
+### Complexity
+* Time Complexity
+$$O(n)$$
+The time complexity is $$O(n)$$ because we are looping over the array once.
+
+* Space Complexity
+$$O(1)$$
+The space complexity is constant because we are not allocating any new space based on input.
+
+### Code
+```java
+int n = nums.length;
+int expectedSum = (n * (n + 1)) / 2;  // Sum of numbers from 0 to n
+int actualSum = 0;
+
+// Calculate the sum of the numbers in the array
+for (int num : nums) {
+    actualSum += num;
+}
+
+// The missing number is the difference between expected and actual sums
+return expectedSum - actualSum;
+```

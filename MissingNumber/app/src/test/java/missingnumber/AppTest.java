@@ -18,4 +18,9 @@ class AppTest {
         int expected = 2;
         assertEquals(expected, classUnderTest.missingNumberSetOptimized(nums));
     }
+
+    @Test void testMissingNumberMath(){
+        int expected = 2;
+        assertEquals(expected, classUnderTest.missingNumberMath(nums));
+    }
 }
