@@ -62,4 +62,43 @@ return -1;
 
 ```
 
-## Math Solution
+## Optimized Set Solution
+
+### Intuition
+After writing the last set solution i began looking for ways i can optimize this. I realized that sorting the array was unnecessary because we are using a set.
+
+Another inefficiency i found is iterating over the set while modifying the set at the same time can be inefficient.
+
+### Approach
+
+I started by deleting everything i had and starting over. I initialize my set and add all the numbers up to N like before.
+
+Then instead of doing any comparison i use a foreach loop and loop over the nums array and for each num i remove it from the set. there is no case where the num does not exist in the set because the elements in the nums array are always between 0 and nums.length.
+
+Then i just return the last element in the set which is the missing number
+
+### Complexity
+
+* Time Complexity
+$$O(n)$$
+The time complexity is $$O(n)$$ because we are adding n numbers to the set.
+
+* Space Complexity
+$$O(n)$$
+The space complexity is $$O(n)$$ because we are adding n numbers to the set.
+
+### Code
+```java
+Set<Integer> numsUpToN = new HashSet<>();
+int n = nums.length;
+
+for (int i = 0; i <= n; i++) {
+  numsUpToN.add(i);
+}
+
+for (int num : nums) {
+  numsUpToN.remove(num);
+}
+
+return numsUpToN.iterator().next();
+```

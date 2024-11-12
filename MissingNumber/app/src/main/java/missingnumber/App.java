@@ -34,4 +34,21 @@ public class App {
 
         return -1;
     }
+
+    public int missingNumberSetOptimized(int[] nums){
+        Set<Integer> numsUpToN = new HashSet<>();
+        int n = nums.length;
+
+        for (int i = 0; i <= n; i++) {
+            numsUpToN.add(i);
+        }
+
+        for (int num : nums) {
+            numsUpToN.remove(num);
+        }
+
+        return numsUpToN.iterator().next();
+    }
+
+
 }
