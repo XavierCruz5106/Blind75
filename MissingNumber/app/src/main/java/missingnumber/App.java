@@ -3,12 +3,35 @@
  */
 package missingnumber;
 
-public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
 
-    public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+public class App {
+    public int missingNumberSet(int[] nums){
+        Set<Integer> numsUpToN = new HashSet<>();
+
+        for (int i = 0; i <= nums.length; i++){
+            numsUpToN.add(i);
+        }
+
+        Arrays.sort(nums);
+        Iterator<Integer> iterator = numsUpToN.iterator();
+        for (int i = 0; i < nums.length; i++){
+            int currentNum = nums[i];
+            int setNum = iterator.next();
+            if (currentNum != setNum){
+                return setNum;
+            }
+            iterator.remove();
+
+            if (nums.length - 1 == i){
+
+                return iterator.next();
+            }
+        }
+
+        return -1;
     }
 }

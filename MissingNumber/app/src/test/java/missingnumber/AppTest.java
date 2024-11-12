@@ -7,8 +7,10 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
-    @Test void appHasAGreeting() {
-        App classUnderTest = new App();
-        assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
+    App classUnderTest = new App();
+    int[] nums = new int[]{0, 1};
+    @Test void testMissingNumberSet() {
+        int expected = 2;
+        assertEquals(expected, classUnderTest.missingNumberSet(nums));
     }
 }
